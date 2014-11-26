@@ -1,12 +1,9 @@
 package com.example.githubapiexample.InformationHandlers;
 
-import com.example.githubapiexample.BussinessControllers.RepositoriesBussinessController;
-
-import org.json.JSONArray;
+import com.example.githubapiexample.Models.Contributor;
 
 import java.util.List;
 
-import retrofit.client.Response;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
@@ -15,6 +12,6 @@ import retrofit.http.Path;
  */
 
 public interface GithubService {
-    @GET("/users/{user}/repos")
-    JSONArray listRepos(@Path("user") String user);
+    @GET("/repos/{owner}/{repo}/contributors")
+    public List<Contributor> contributors(@Path("owner") String owner, @Path("repo") String repo);
 }

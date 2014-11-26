@@ -1,31 +1,29 @@
-package com.example.githubapiexample.BussinessControllers;
+package com.example.githubapiexample.BusinessControllers;
 
 import android.util.Log;
-import android.widget.ArrayAdapter;
 
 import com.example.githubapiexample.InformationHandlers.GithubService;
-
-import org.json.JSONArray;
+import com.example.githubapiexample.Models.Contributor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.RestAdapter;
-import retrofit.client.Response;
 
 /**
  * Created by Amaury Esparza on 23/11/2014.
  */
-public class RepositoriesBussinessController implements IRepositories {
+public class RepositoriesBusinessController implements IRepositories {
     private ArrayList<String> repos;
-    private JSONArray response;
+    private List<Contributor> listContributors;
 
     @Override
     public ArrayList<String> getRepositories(String username){
+        //Endpoint
         RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("https://api.github.com").build();
         GithubService service = restAdapter.create(GithubService.class);
-        response = service.listRepos(username);
-        Log.d("JSONArray", response+"");
+        listContributors = service.contributors(username, "retrofit");
+        Log.d("List Contributors", listContributors+" ");
         return repos;
     }
 }

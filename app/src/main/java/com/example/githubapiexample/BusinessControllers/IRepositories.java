@@ -1,4 +1,4 @@
-package com.example.githubapiexample.BussinessControllers;
+package com.example.githubapiexample.BusinessControllers;
 
 import java.util.ArrayList;
 

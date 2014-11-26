@@ -2,14 +2,12 @@ package com.example.githubapiexample.ViewControllers;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.example.githubapiexample.BussinessControllers.RepositoriesBussinessController;
+import com.example.githubapiexample.BusinessControllers.RepositoriesBusinessController;
 import com.example.githubapiexample.R;
 
 
@@ -30,7 +28,7 @@ public class RepositoriesViewController extends Activity {
         findButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                RepositoriesBussinessController repoBC = new RepositoriesBussinessController();
+                RepositoriesBusinessController repoBC = new RepositoriesBusinessController();
                 repoBC.getRepositories(usernameText.getText().toString());
             }
         });
